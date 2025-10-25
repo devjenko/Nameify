@@ -1,24 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/styles.css">
-</head>
-<body>
-  <div class="navbar bg-base-100">
-    <a class="btn  text-xl">daisyUI</a>
-  </div>
+<%- include("partials/header.ejs") %>
+<main>
   
-  <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Hello there!</h1>
-        <p class="py-6">Welcome to Express + EJS + Tailwind + DaisyUI</p>
-        <button class="btn bg-blue-500">Get Started</button>
-      </div>
-    </div>
+  
+  <h1 class="text-center text-5xl">Business Name Generator</h1>
+  <p class="py-6 text-center">Select a category and generate creative names</p>
+  
+  
+<div class="flex container flex-col justify-center m-auto">
+
+  <h2>Choose Category</h2>
+
+  <!-- Category Grid -->
+  <div class="grid grid-rows-3 grid-cols-4">
+
+
+    <!-- Category Card -->
+<div class="card card-sm bg-base-200 max-w-60 shadow cursor-pointer">
+  <figure class="hover-gallery">
+    <img src="https://img.daisyui.com/images/stock/daisyui-hat-1.webp" />
+    <img src="https://img.daisyui.com/images/stock/daisyui-hat-2.webp" />
+    <img src="https://img.daisyui.com/images/stock/daisyui-hat-3.webp" />
+    <img src="https://img.daisyui.com/images/stock/daisyui-hat-4.webp" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title flex justify-between">
+      Technology
+    </h2>
+    <p>High Quality classic cap hat with stitch logo</p>
   </div>
-</body>
-</html>
+</div>
+
+
+  </div>
+
+
+      <div class="w-full flex justify-center items-center">
+          <button class="btn btn-neutral w-fit  p-6">Generate Name</button>
+      </div>
+
+</div>
+  
+</main>
+
+<%- include("partials/footer.ejs") %>

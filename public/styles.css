@@ -712,10 +712,150 @@ video {
   --root-bg: var(--color-base-100);
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 @keyframes rating {
   0%, 40% {
     scale: 1.1;
     filter: brightness(1.05) contrast(1.05);
+  }
+}
+
+@layer daisyui.component {
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    position-area: var(--anchor-v, bottom) var(--anchor-h, span-right);
+  }
+
+  .dropdown > *:not(summary):focus {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .dropdown > *:not(summary):focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .dropdown .dropdown-content {
+    position: absolute;
+  }
+
+  .dropdown:not(details, .dropdown-open, .dropdown-hover:hover, :focus-within) .dropdown-content, .dropdown.dropdown-hover:not(:hover) [tabindex]:first-child:focus:not(:focus-visible) ~ .dropdown-content {
+    display: none;
+    transform-origin: top;
+    opacity: 0%;
+    scale: 95%;
+  }
+
+  .dropdown[popover], .dropdown .dropdown-content {
+    z-index: 999;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .dropdown[popover], .dropdown .dropdown-content {
+      animation: dropdown 0.2s;
+      transition-property: opacity, scale, display;
+      transition-behavior: allow-discrete;
+      transition-duration: 0.2s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  @starting-style {
+    .dropdown[popover], .dropdown .dropdown-content {
+      scale: 95%;
+      opacity: 0;
+    }
+  }
+
+  .dropdown.dropdown-open > [tabindex]:first-child, .dropdown:not(.dropdown-hover):focus > [tabindex]:first-child, .dropdown:focus-within > [tabindex]:first-child {
+    pointer-events: none;
+  }
+
+  .dropdown.dropdown-open .dropdown-content, .dropdown:not(.dropdown-hover):focus .dropdown-content, .dropdown:focus-within .dropdown-content {
+    opacity: 100%;
+  }
+
+  .dropdown.dropdown-hover:hover .dropdown-content {
+    opacity: 100%;
+    scale: 100%;
+  }
+
+  .dropdown:is(details) summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .dropdown.dropdown-open .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
+    scale: 100%;
+  }
+
+  .dropdown:where([popover]) {
+    background: #0000;
+  }
+
+  .dropdown[popover] {
+    position: fixed;
+    color: inherit;
+  }
+
+  @supports not (position-area: bottom) {
+    .dropdown[popover] {
+      margin: auto;
+    }
+
+    .dropdown[popover].dropdown-open:not(:popover-open) {
+      display: none;
+      transform-origin: top;
+      opacity: 0%;
+      scale: 95%;
+    }
+
+    .dropdown[popover]::backdrop {
+      background-color: color-mix(in oklab, #000 30%, #0000);
+    }
+  }
+
+  .dropdown[popover]:not(.dropdown-open, :popover-open) {
+    display: none;
+    transform-origin: top;
+    opacity: 0%;
+    scale: 95%;
   }
 }
 
@@ -866,6 +1006,125 @@ video {
   }
 }
 
+@layer daisyui.modifier.color {
+  .btn-primary {
+    --btn-color: var(--color-primary);
+    --btn-fg: var(--color-primary-content);
+  }
+
+  .btn-neutral {
+    --btn-color: var(--color-neutral);
+    --btn-fg: var(--color-neutral-content);
+  }
+}
+
+@layer daisyui.modifier {
+  .btn-ghost:not(.btn-active, :hover, :active:focus, :focus-visible) {
+    --btn-shadow: "";
+    --btn-bg: #0000;
+    --btn-border: #0000;
+    --btn-noise: none;
+  }
+
+  .btn-ghost:not(.btn-active, :hover, :active:focus, :focus-visible):not(:disabled, [disabled], .btn-disabled) {
+    outline-color: currentcolor;
+    --btn-fg: currentColor;
+  }
+
+  @media (hover: none) {
+    .btn-ghost:hover:not(.btn-active, :active, :focus-visible, :disabled, [disabled], .btn-disabled) {
+      --btn-shadow: "";
+      --btn-bg: #0000;
+      --btn-border: #0000;
+      --btn-noise: none;
+      --btn-fg: currentColor;
+    }
+  }
+
+  .btn-outline:not( .btn-active, :hover, :active:focus, :focus-visible, :disabled, [disabled], .btn-disabled, :checked ) {
+    --btn-shadow: "";
+    --btn-bg: #0000;
+    --btn-fg: var(--btn-color);
+    --btn-border: var(--btn-color);
+    --btn-noise: none;
+  }
+
+  @media (hover: none) {
+    .btn-outline:hover:not( .btn-active, :active, :focus-visible, :disabled, [disabled], .btn-disabled, :checked ) {
+      --btn-shadow: "";
+      --btn-bg: #0000;
+      --btn-fg: var(--btn-color);
+      --btn-border: var(--btn-color);
+      --btn-noise: none;
+    }
+  }
+
+  .btn-dash:not( .btn-active, :hover, :active:focus, :focus-visible, :disabled, [disabled], .btn-disabled, :checked ) {
+    --btn-shadow: "";
+    border-style: dashed;
+    --btn-bg: #0000;
+    --btn-fg: var(--btn-color);
+    --btn-border: var(--btn-color);
+    --btn-noise: none;
+  }
+
+  @media (hover: none) {
+    .btn-dash:hover:not( .btn-active, :active, :focus-visible, :disabled, [disabled], .btn-disabled, :checked ) {
+      --btn-shadow: "";
+      border-style: dashed;
+      --btn-bg: #0000;
+      --btn-fg: var(--btn-color);
+      --btn-border: var(--btn-color);
+      --btn-noise: none;
+    }
+  }
+
+  .btn-soft:not( .btn-active, :hover, :active:focus, :focus-visible, :disabled, [disabled], .btn-disabled ) {
+    --btn-shadow: "";
+    --btn-fg: var(--btn-color, var(--color-base-content));
+    --btn-bg: color-mix(
+        in oklab,
+        var(--btn-color, var(--color-base-content)) 8%,
+        var(--color-base-100)
+      );
+    --btn-border: color-mix(
+        in oklab,
+        var(--btn-color, var(--color-base-content)) 10%,
+        var(--color-base-100)
+      );
+    --btn-noise: none;
+  }
+
+  @media (hover: none) {
+    .btn-soft:hover:not(.btn-active, :active, :focus-visible, :disabled, [disabled], .btn-disabled) {
+      --btn-shadow: "";
+      --btn-fg: var(--btn-color, var(--color-base-content));
+      --btn-bg: color-mix(
+          in oklab,
+          var(--btn-color, var(--color-base-content)) 8%,
+          var(--color-base-100)
+        );
+      --btn-border: color-mix(
+          in oklab,
+          var(--btn-color, var(--color-base-content)) 10%,
+          var(--color-base-100)
+        );
+      --btn-noise: none;
+    }
+  }
+
+  .btn-xl {
+    --fontsize: 1.375rem;
+    --btn-p: 1.5rem;
+    --size: calc(var(--size-field, 0.25rem) * 14);
+  }
+
+  .btn-wide {
+    width: 100%;
+    max-width: calc(0.25rem * 64);
+  }
+}
+
 @layer daisyui.component {
   .navbar {
     display: flex;
@@ -893,6 +1152,386 @@ video {
 }
 
 @layer daisyui.component {
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius-box);
+    outline-width: 2px;
+    transition: outline 0.2s ease-in-out;
+    outline: 0 solid #0000;
+    outline-offset: 2px;
+  }
+
+  .card:focus {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .card:focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .card:focus-visible {
+    outline-color: currentColor;
+  }
+
+  .card :where(figure:first-child) {
+    overflow: hidden;
+    border-start-start-radius: inherit;
+    border-start-end-radius: inherit;
+    border-end-start-radius: unset;
+    border-end-end-radius: unset;
+  }
+
+  .card :where(figure:last-child) {
+    overflow: hidden;
+    border-start-start-radius: unset;
+    border-start-end-radius: unset;
+    border-end-start-radius: inherit;
+    border-end-end-radius: inherit;
+  }
+
+  .card figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card:has(> input:is(input[type="checkbox"], input[type="radio"])) {
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+
+  .card:has(> :checked) {
+    outline: 2px solid currentColor;
+  }
+}
+
+@layer daisyui.modifier {
+  .image-full {
+    display: grid;
+  }
+
+  .image-full > * {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+  .image-full > .card-body {
+    position: relative;
+    color: var(--color-neutral-content);
+  }
+
+  .image-full :where(figure) {
+    overflow: hidden;
+    border-radius: inherit;
+  }
+
+  .image-full > figure img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    filter: brightness(28%);
+  }
+}
+
+@layer daisyui.component {
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: calc(0.25rem * 2);
+    font-size: var(--cardtitle-fs, 1.125rem);
+    font-weight: 600;
+  }
+
+  .card-body {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    gap: calc(0.25rem * 2);
+    padding: var(--card-p, 1.5rem);
+    font-size: var(--card-fs, 0.875rem);
+  }
+
+  .card-body :where(p) {
+    flex-grow: 1;
+  }
+
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: calc(0.25rem * 2);
+  }
+}
+
+@layer daisyui.modifier {
+  .card-xs .card-body {
+    --card-p: 0.5rem;
+    --card-fs: 0.6875rem;
+  }
+
+  .card-xs .card-title {
+    --cardtitle-fs: 0.875rem;
+  }
+
+  .card-sm .card-body {
+    --card-p: 1rem;
+    --card-fs: 0.75rem;
+  }
+
+  .card-sm .card-title {
+    --cardtitle-fs: 1rem;
+  }
+
+  .card-md .card-body {
+    --card-p: 1.5rem;
+    --card-fs: 0.875rem;
+  }
+
+  .card-md .card-title {
+    --cardtitle-fs: 1.125rem;
+  }
+
+  .card-lg .card-body {
+    --card-p: 2rem;
+    --card-fs: 1rem;
+  }
+
+  .card-lg .card-title {
+    --cardtitle-fs: 1.25rem;
+  }
+
+  .card-xl .card-body {
+    --card-p: 2.5rem;
+    --card-fs: 1.125rem;
+  }
+
+  .card-xl .card-title {
+    --cardtitle-fs: 1.375rem;
+  }
+}
+
+@layer daisyui.component {
+  .footer {
+    display: grid;
+    width: 100%;
+    grid-auto-flow: row;
+    place-items: start;
+    -moz-column-gap: calc(0.25rem * 4);
+         column-gap: calc(0.25rem * 4);
+    row-gap: calc(0.25rem * 10);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .footer > * {
+    display: grid;
+    place-items: start;
+    gap: calc(0.25rem * 2);
+  }
+
+  .footer.footer-center {
+    grid-auto-flow: column dense;
+    place-items: center;
+    text-align: center;
+  }
+
+  .footer.footer-center > * {
+    place-items: center;
+  }
+
+  .menu {
+    display: flex;
+    width: -moz-fit-content;
+    width: fit-content;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: calc(0.25rem * 2);
+    --menu-active-fg: var(--color-neutral-content);
+    --menu-active-bg: var(--color-neutral);
+    font-size: 0.875rem;
+  }
+
+  .menu :where(li ul) {
+    position: relative;
+    margin-inline-start: calc(0.25rem * 4);
+    padding-inline-start: calc(0.25rem * 2);
+    white-space: nowrap;
+  }
+
+  .menu :where(li ul):before {
+    position: absolute;
+    inset-inline-start: calc(0.25rem * 0);
+    top: calc(0.25rem * 3);
+    bottom: calc(0.25rem * 3);
+    background-color: var(--color-base-content);
+    opacity: 10%;
+    width: var(--border);
+    content: "";
+  }
+
+  .menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
+    display: none;
+  }
+
+  .menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    display: grid;
+    grid-auto-flow: column;
+    align-content: flex-start;
+    align-items: center;
+    gap: calc(0.25rem * 2);
+    border-radius: var(--radius-field);
+    padding-inline: calc(0.25rem * 3);
+    padding-block: calc(0.25rem * 1.5);
+    text-align: start;
+    transition-property: color, background-color, box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    grid-auto-columns: minmax(auto, max-content) auto max-content;
+    text-wrap: balance;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+
+  .menu :where(li > details > summary) {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .menu :where(li > details > summary) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .menu :where(li > details > summary)::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu :where(li > details > summary):after, .menu :where(li > .menu-dropdown-toggle):after {
+    justify-self: flex-end;
+    display: block;
+    height: 0.375rem;
+    width: 0.375rem;
+    rotate: -135deg;
+    translate: 0 -1px;
+    transition-property: rotate, translate;
+    transition-duration: 0.2s;
+    content: "";
+    transform-origin: 50% 50%;
+    box-shadow: 2px 2px inset;
+    pointer-events: none;
+  }
+
+  .menu :where(li > details[open] > summary):after, .menu :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
+    rotate: 45deg;
+    translate: 0 1px;
+  }
+
+  .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title) ):not(.menu-active, :active, .btn).menu-focus, .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title) ):not(.menu-active, :active, .btn):focus-visible {
+    cursor: pointer;
+    background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+    color: var(--color-base-content);
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title) ):not(.menu-active, :active, .btn).menu-focus, .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title), li:not(.menu-title, .disabled) > details > summary:not(.menu-title) ):not(.menu-active, :active, .btn):focus-visible {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover ) {
+    cursor: pointer;
+    background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover ) {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .menu :where( li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title):not(.menu-active, :active, .btn):hover, li:not(.menu-title, .disabled) > details > summary:not(.menu-title):not(.menu-active, :active, .btn):hover ) {
+    box-shadow: 0 1px oklch(0% 0 0 / 0.01) inset, 0 -1px oklch(100% 0 0 / 0.01) inset;
+  }
+
+  .menu :where(li:empty) {
+    background-color: var(--color-base-content);
+    opacity: 10%;
+    margin: 0.5rem 1rem;
+    height: 1px;
+  }
+
+  .menu :where(li) {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .menu :where(li) .badge {
+    justify-self: flex-end;
+  }
+
+  .menu :where(li) > *:not(ul, .menu-title, details, .btn):active, .menu :where(li) > *:not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+  @media (forced-colors: active) {
+    .menu :where(li) > *:not(ul, .menu-title, details, .btn):active, .menu :where(li) > *:not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  .menu :where(li) > *:not(ul, .menu-title, details, .btn):active, .menu :where(li) > *:not(ul, .menu-title, details, .btn).menu-active, .menu :where(li) > details > summary:active {
+    color: var(--menu-active-fg);
+    background-color: var(--menu-active-bg);
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+  }
+
+  .menu :where(li) > *:not(ul, .menu-title, details, .btn):active:not(.menu :where(li) > *:not(ul, .menu-title, details, .btn):active:active), .menu :where(li) > *:not(ul, .menu-title, details, .btn).menu-active:not(.menu :where(li) > *:not(ul, .menu-title, details, .btn).menu-active:active), .menu :where(li) > details > summary:active:not(.menu :where(li) > details > summary:active:active) {
+    box-shadow: 0 2px calc(var(--depth) * 3px) -2px var(--menu-active-bg);
+  }
+
+  .menu :where(li).menu-disabled {
+    pointer-events: none;
+    color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+  }
+
+  .menu .dropdown:focus-within .menu-dropdown-toggle:after {
+    rotate: 45deg;
+    translate: 0 1px;
+  }
+
+  .menu .dropdown-content {
+    margin-top: calc(0.25rem * 2);
+    padding: calc(0.25rem * 2);
+  }
+
+  .menu .dropdown-content:before {
+    display: none;
+  }
+
   .link {
     cursor: pointer;
     text-decoration-line: underline;
@@ -937,6 +1576,113 @@ video {
     gap: calc(0.25rem * 4);
     padding: calc(0.25rem * 4);
   }
+
+  .hover-gallery {
+    --items: 1;
+    grid-template-columns: repeat(var(--items), 1fr);
+    width: 100%;
+    gap: 1px;
+    overflow: hidden;
+  }
+
+  .hover-gallery, .hover-gallery:is(figure) {
+    display: inline-grid;
+  }
+
+  .hover-gallery:has(> :nth-child(3)) {
+    --items: 2;
+  }
+
+  .hover-gallery:has(> :nth-child(4)) {
+    --items: 3;
+  }
+
+  .hover-gallery:has(> :nth-child(5)) {
+    --items: 4;
+  }
+
+  .hover-gallery:has(> :nth-child(6)) {
+    --items: 5;
+  }
+
+  .hover-gallery:has(> :nth-child(7)) {
+    --items: 6;
+  }
+
+  .hover-gallery:has(> :nth-child(8)) {
+    --items: 7;
+  }
+
+  .hover-gallery:has(> :nth-child(9)) {
+    --items: 8;
+  }
+
+  .hover-gallery:has(> :nth-child(10)) {
+    --items: 9;
+  }
+
+  .hover-gallery > * {
+    opacity: 0;
+    height: 100%;
+    grid-row: 1;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+  }
+
+  .hover-gallery > *:nth-child(1) {
+    grid-column: 1 / -1;
+    opacity: 1;
+  }
+
+  .hover-gallery > *:nth-child(2) {
+    grid-column: 1;
+  }
+
+  .hover-gallery > *:nth-child(3) {
+    grid-column: 2;
+  }
+
+  .hover-gallery > *:nth-child(4) {
+    grid-column: 3;
+  }
+
+  .hover-gallery > *:nth-child(5) {
+    grid-column: 4;
+  }
+
+  .hover-gallery > *:nth-child(6) {
+    grid-column: 5;
+  }
+
+  .hover-gallery > *:nth-child(7) {
+    grid-column: 6;
+  }
+
+  .hover-gallery > *:nth-child(8) {
+    grid-column: 7;
+  }
+
+  .hover-gallery > *:nth-child(9) {
+    grid-column: 8;
+  }
+
+  .hover-gallery > *:nth-child(10) {
+    grid-column: 9;
+  }
+
+  .hover-gallery > *:nth-child(n + 11) {
+    display: none;
+  }
+
+  .hover-gallery > *:hover {
+    grid-column: 1 / -1;
+    opacity: 1;
+  }
+
+  .hover-gallery:has(*:hover) > :nth-child(1) {
+    display: none;
+  }
 }
 
 @keyframes progress {
@@ -945,12 +1691,157 @@ video {
   }
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-56 {
+  height: 14rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[800px\] {
+  height: 800px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-56 {
+  width: 14rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-\[50\%\] {
+  width: 50%;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
 .max-w-md {
   max-width: 28rem;
+}
+
+.max-w-60 {
+  max-width: 15rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .bg-base-100 {
@@ -969,6 +1860,10 @@ video {
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .py-6 {
@@ -990,6 +1885,41 @@ video {
   line-height: 1.75rem;
 }
 
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.join-item:where(*:is(:disabled, [disabled], .btn-disabled)) {
+  border-width: var(--border, 1px) 0 var(--border, 1px) var(--border, 1px);
 }
