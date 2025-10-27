@@ -1,13 +1,11 @@
-import { title } from "process";
-
 const categories = [
   {
     title: "Technology",
     images: [
-      "/images/tech1.jpg",
-      "/images/tech2.jpg",
-      "/images/tech3.jpg",
-      "/images/tech4.jpg",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1581091012184-5f157f182b46?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1555421689-25f0ef1d5e6c?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Software Engineer",
@@ -19,10 +17,10 @@ const categories = [
   {
     title: "Health",
     images: [
-      "/images/health1.jpg",
-      "/images/health2.jpg",
-      "/images/health3.jpg",
-      "/images/health4.jpg",
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Medical Researcher",
@@ -34,20 +32,20 @@ const categories = [
   {
     title: "Finance",
     images: [
-      "/images/finance1.jpg",
-      "/images/finance2.jpg",
-      "/images/finance3.jpg",
-      "/images/finance4.jpg",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: ["Financial Analyst", "Investment Banker", "Accountant", "Auditor"],
   },
   {
     title: "Education",
     images: [
-      "/images/education1.jpg",
-      "/images/education2.jpg",
-      "/images/education3.jpg",
-      "/images/education4.jpg",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Curriculum Developer",
@@ -59,10 +57,10 @@ const categories = [
   {
     title: "Food & Beverage",
     images: [
-      "/images/food1.jpg",
-      "/images/food2.jpg",
-      "/images/food3.jpg",
-      "/images/food4.jpg",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Culinary Artist",
@@ -74,36 +72,21 @@ const categories = [
   {
     title: "Fashion",
     images: [
-      "/images/fashion1.jpg",
-      "/images/fashion2.jpg",
-      "/images/fashion3.jpg",
-      "/images/fashion4.jpg",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1520975698514-91b7e2d3c546?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: ["Fashion Designer", "Stylist", "Merchandiser", "Textile Expert"],
   },
 
   {
-    title: "Fitness",
-    images: [
-      "/images/fitness1.jpg",
-      "/images/fitness2.jpg",
-      "/images/fitness3.jpg",
-      "/images/fitness4.jpg",
-    ],
-    badges: [
-      "Personal Trainer",
-      "Yoga Instructor",
-      "Nutrition Coach",
-      "Wellness Consultant",
-    ],
-  },
-  {
     title: "Beauty",
     images: [
-      "/images/beauty1.jpg",
-      "/images/beauty2.jpg",
-      "/images/beauty3.jpg",
-      "/images/beauty4.jpg",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Makeup Artist",
@@ -115,10 +98,10 @@ const categories = [
   {
     title: "Consulting",
     images: [
-      "/images/consulting1.jpg",
-      "/images/consulting2.jpg",
-      "/images/consulting3.jpg",
-      "/images/consulting4.jpg",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Business Consultant",
@@ -130,10 +113,10 @@ const categories = [
   {
     title: "Real Estate",
     images: [
-      "/images/realestate1.jpg",
-      "/images/realestate2.jpg",
-      "/images/realestate3.jpg",
-      "/images/realestate4.jpg",
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1580584122190-108e7eb1f151?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Property Manager",
@@ -145,30 +128,30 @@ const categories = [
   {
     title: "Pet Services",
     images: [
-      "/images/pet1.jpg",
-      "/images/pet2.jpg",
-      "/images/pet3.jpg",
-      "/images/pet4.jpg",
+      "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: ["Veterinarian", "Pet Groomer", "Animal Trainer", "Pet Sitter"],
   },
   {
     title: "Art",
     images: [
-      "/images/art1.jpg",
-      "/images/art2.jpg",
-      "/images/art3.jpg",
-      "/images/art4.jpg",
+      "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1532634726-8b9fb99825b3?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: ["Graphic Designer", "Illustrator", "Art Director", "Animator"],
   },
   {
     title: "Travel",
     images: [
-      "/images/travel1.jpg",
-      "/images/travel2.jpg",
-      "/images/travel3.jpg",
-      "/images/travel4.jpg",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=384&h=240&fit=crop&crop=center&auto=format&q=80",
     ],
     badges: [
       "Travel Agent",
