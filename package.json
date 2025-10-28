@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build:css && node server.js",
     "dev": "nodemon server.js",
     "build:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
-    "render": "npm install --include=dev && npm run build:css"
+    "render": "npm install"
   },
   "keywords": [],
   "author": "Brandon Jenkins",
