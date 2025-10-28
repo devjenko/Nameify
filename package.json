@@ -10,7 +10,7 @@
     "watch:css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Brandon Jenkins",
   "license": "ISC",
   "type": "module",
   "dependencies": {
