@@ -7,7 +7,7 @@ module.exports = {
         // Marquee animation for category badges
         marquee: {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-157%)" },
+          "100%": { transform: "translateX(-142%)" },
         },
       },
       animation: {

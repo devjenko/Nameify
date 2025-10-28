@@ -1,16 +1,16 @@
 <%- include("partials/header.ejs") %>
-<main class="p-8">
+<main class="p-4 md:p-6 lg:p-8">
   <h1 class="text-center text-5xl">Business Name Generator</h1>
-  <p class="py-8 text-center">Select a category and generate creative names</p>
+  <p class="py-4 md:py-6 lg:py-8 text-center">Select a category and generate creative business names</p>
 
   <div class="flex container flex-col justify-center m-auto">
 
 
  <!-- Category Grid -->
-<div class="grid grid-rows-3 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-12 m-auto p-8">
+<div class="grid grid-rows-3 grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-12 m-auto p-4 md:p-6 lg:p-8">
   <% categories.forEach((category, categoryIndex) => { %>
     <!-- Card -->
-    <div  class="card bg-base-200 max-w-96 shadow cursor-pointer overflow-hidden hover:shadow-indigo-50 gap-4  transform transition-all duration-200 ease-in-out hover:scale-[1.04] p-4">
+    <div  class="card bg-base-200 max-w-96 shadow cursor-pointer overflow-hidden hover:shadow-indigo-50 gap-4 transform transition-all duration-200 ease-in-out hover:scale-[1.04] p-2 lg:p-4">
 
       <!-- Images -->
       <div class="carousel relative w-full h-60 overflow-hidden rounded-xl shadow">
