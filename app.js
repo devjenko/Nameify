@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import categories from "./src/data/categories.js";
 import categoryRouter from "./src/routes/categoryRouter.js";
 
+
 // __dirname replacement in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
