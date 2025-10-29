@@ -4,8 +4,19 @@
 
 <h1>Hello <%- categoryName %> results </h1>
 
-<div class="h-96 overflow-x-auto">
-  <table class="table table-pin-rows m-auto w-full bg-base-200">
+
+<!--Results table-->
+<div class="h-[80vh] overflow-x-auto relative ">
+
+  <!--Results view skeleton-->
+  <div class=" content flex flex-col gap-1 absolute z-10 mt-10 justify-center w-full rounded-none">
+  <% for (let i = 0; i < 16; i++) { %>
+  <div class="  h-14 w-full"></div>
+  <% }%>
+</div>
+
+
+  <table class="table table-pin-rows m-auto w-full bg-base-200" > 
     <thead>
       <tr>
         <th>A</th>
