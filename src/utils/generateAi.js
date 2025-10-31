@@ -18,17 +18,16 @@ async function generateAi(categoryName) {
         Category: ${categoryName}.
         Make sure names fit the category, feel professional, and resemble modern brand naming styles.
 
-        (Return ONLY this table in HTML format, exactly as given and do not include code fences, markdown, or any extra text.)
+        (Return ONLY this table in HTML format, exactly as given and do not include code fences, markdown, or any extra text. Also ensure the table styling is how it should be. (Like what I gave you.))
         
+        <div class="h-96 overflow-x-auto">
         <table class="table table-pin-rows m-auto w-full bg-base-200"> 
-            <thead>
+    <thead>
       <tr>
         <th>A</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
@@ -42,8 +41,6 @@ async function generateAi(categoryName) {
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -51,7 +48,6 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
-      <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
@@ -65,7 +61,6 @@ async function generateAi(categoryName) {
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
-      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -73,6 +68,8 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
     <thead>
@@ -82,6 +79,8 @@ async function generateAi(categoryName) {
     </thead>
     <tbody>
       <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -89,7 +88,6 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
-      <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
@@ -112,6 +110,7 @@ async function generateAi(categoryName) {
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
+      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -120,6 +119,8 @@ async function generateAi(categoryName) {
     </thead>
     <tbody>
       <tr><td></td></tr>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -127,6 +128,7 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
+      <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
@@ -139,8 +141,6 @@ async function generateAi(categoryName) {
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
-      <tr><td></td></tr>
-      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -148,6 +148,7 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
+      <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
@@ -160,7 +161,6 @@ async function generateAi(categoryName) {
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
-      <tr><td></td></tr>
     </tbody>
     <thead>
       <tr>
@@ -168,6 +168,8 @@ async function generateAi(categoryName) {
       </tr>
     </thead>
     <tbody>
+      <tr><td></td></tr>
+      <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
     <thead>
@@ -178,15 +180,17 @@ async function generateAi(categoryName) {
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
+      <tr><td></td></tr>
     </tbody>
-        </table>
+  </table>
+</div>
         `,
       },
     ],
   });
   let content = result.choices[0].message.content;
 
-  // 🧹 Remove any Markdown code fences (```html, ```js, or plain ```)
+  //  Remove any Markdown code fences (```html, ```js, or plain ```)
   content = content
     .replace(/```[\s\S]*?```/g, (match) =>
       match.replace(/```(html|javascript|js)?/gi, "").replace(/```/g, "")

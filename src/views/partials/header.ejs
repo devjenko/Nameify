@@ -6,6 +6,13 @@
   <title><%= title %></title>
   <link rel="stylesheet" href="/styles.css">
 </head>
+<!--Checks for categoryName and adds data-category attribute-->
+<% if (typeof categoryName !== "undefined") { %>
+  <body data-category="<%= categoryName %>">
+<% } else { %>
+  <body>
+<% } %>
+  
 
 
 <!-- Navbar -->

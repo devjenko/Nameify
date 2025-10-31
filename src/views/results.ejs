@@ -2,19 +2,25 @@
 <%- include("partials/layout.ejs") %>
 
 
-<h1>Hello <%- categoryName %> results </h1>
+<h1><%- categoryName %> Business Names  </h1>
 
 
 <!--Results table-->
 <div class=" h-[80vh] lg:h-[89vh] overflow-x-auto relative ">
+<div class="aiResponse text-center">Loading ...</div>
+<div class="flex justify-center">
+  <div class="loading  hidden"></div>
 
-  <!--Results view skeleton-->
-  <div class="flex flex-col gap-1 absolute z-10 mt-10 justify-center w-full rounded-none">
-  <% for (let i = 0; i < 16; i++) { %>
-  <div class="  h-14 w-full"></div>
-  <% }%>
 </div>
-  <%- aiResponse %>
+
+<div class="   flex  w-full flex-col gap-4">
+  <div class="skeleton  h-4 w-full"></div>
+  <div class="skeleton h-4 w-full"></div>
+  <div class="skeleton h-4 w-full"></div>
+</div>
+
+
+
 </div>
 
 
