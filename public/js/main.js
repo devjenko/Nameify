@@ -3,7 +3,6 @@ window.onload = async () => {
   const aiResponse = document.querySelector(".aiResponse");
   const category = document.body.dataset.category;
   const loadingElement = document.querySelector(".loading");
-  const skeleton = document.querySelectorAll(".skeleton");
 
   // Center loading text
   aiResponse.classList.add("text-center");
@@ -37,6 +36,9 @@ window.onload = async () => {
   // re-hide the loading element
   loadingElement.classList.add("hidden");
   // Remove skeleton loader for the results page
+  const skeleton = document.querySelectorAll(".skeleton");
+  const skeletonContainer = document.querySelector(".skeleton-container");
+  skeletonContainer.classList.add("hidden");
   skeleton.forEach((el) => {
     el.classList.add("hidden");
   });
