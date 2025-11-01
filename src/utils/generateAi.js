@@ -14,169 +14,116 @@ async function generateAi(categoryName) {
       {
         role: "user",
         content: `
-        I want you to generate and fill this table with creative business names sorted A–Z.
-        Category: ${categoryName}.
-        Make sure names fit the category, feel professional, and resemble modern brand naming styles.
+You are an expert HTML generator.
 
-        (Return ONLY this table in HTML format, exactly as given and do not include code fences, markdown, or any extra text. Also ensure the table styling is how it should be. (Like what I gave you.))
-        
-        <div class="h-96 overflow-x-auto">
-        <table class="table table-pin-rows m-auto w-full bg-base-200"> 
-    <thead>
-      <tr>
-        <th>A</th>
-      </tr>
-    </thead>
+Task:
+Fill the following DaisyUI table with creative, professional, and modern business names that match the given category.
+
+Rules:
+- Only modify the empty <td></td> cells by inserting business names.
+- Each <tbody> section belongs to the preceding <thead> letter and must contain 3 unique names starting with that letter.
+- Keep all <div>, <table>, <thead>, <tbody>, <tr>, <th>, and <td> tags exactly as they are.
+- Do NOT remove, add, or rearrange any structure, tags, or classes.
+- Output only the HTML (starting with <div> and ending with </div>).
+- Do NOT include markdown, code fences, explanations, or comments.
+- Ensure all names fit the given category and sound like real, modern brand names (e.g., Notion, Stripe, Canva, Figma).
+
+Category: ${categoryName}
+
+Now fill this exact HTML:
+<div class="h-[85vh] md:h-[100vh] overflow-x-auto">
+  <table class="table table-pin-rows m-auto w-full bg-base-200">
+    <thead><tr><th>A</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>B</th>
-      </tr>
-    </thead>
+    <thead><tr><th>B</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>C</th>
-      </tr>
-    </thead>
+    <thead><tr><th>C</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>D</th>
-      </tr>
-    </thead>
+    <thead><tr><th>D</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>E</th>
-      </tr>
-    </thead>
+    <thead><tr><th>E</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>F</th>
-      </tr>
-    </thead>
+    <thead><tr><th>F</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>G</th>
-      </tr>
-    </thead>
+    <thead><tr><th>G</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>H</th>
-      </tr>
-    </thead>
+    <thead><tr><th>H</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>I</th>
-      </tr>
-    </thead>
+    <thead><tr><th>I</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>M</th>
-      </tr>
-    </thead>
+    <thead><tr><th>M</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>R</th>
-      </tr>
-    </thead>
+    <thead><tr><th>R</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>S</th>
-      </tr>
-    </thead>
+    <thead><tr><th>S</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>T</th>
-      </tr>
-    </thead>
+    <thead><tr><th>T</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>W</th>
-      </tr>
-    </thead>
+    <thead><tr><th>W</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>X</th>
-      </tr>
-    </thead>
+    <thead><tr><th>X</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
       <tr><td></td></tr>
     </tbody>
-    <thead>
-      <tr>
-        <th>Z</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Z</th></tr></thead>
     <tbody>
       <tr><td></td></tr>
       <tr><td></td></tr>
@@ -184,7 +131,7 @@ async function generateAi(categoryName) {
     </tbody>
   </table>
 </div>
-        `,
+`,
       },
     ],
   });

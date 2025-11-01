@@ -1,24 +1,29 @@
 <%- include("partials/header") %>
 <%- include("partials/layout.ejs") %>
 
+<h1 class="results-heading hidden text-center p-6"><%- categoryName %> Business Names</h1>
 
-<h1><%- categoryName %> Business Names  </h1>
+
+<div class="flex justify-center flex-col p-6 gap-2">
+  <div class="aiResponse text-center">Generating ...</div>
+  <div class="loading m-auto  hidden"></div>
+</div>
+
 
 
 <!--Results table-->
-<div class=" h-[80vh] lg:h-[89vh] overflow-x-auto relative ">
-<div class="aiResponse text-center">Loading ...</div>
-<div class="flex justify-center">
-  <div class="loading  hidden"></div>
+<div class=" results h-full overflow-x-auto relative ">
 
+
+<!--Iterate skeleton loader-->
+<% for (let i = 0; i < 6; i++) { %>
+<div class="flex w-full    flex-col gap-2">
+  <div class="skeleton h-12 w-full"></div>
+  <div class="skeleton h-12 w-full"></div>
+  <div class="skeleton h-12 w-full"></div>
+  <br>
 </div>
-
-<div class="   flex  w-full flex-col gap-4">
-  <div class="skeleton  h-4 w-full"></div>
-  <div class="skeleton h-4 w-full"></div>
-  <div class="skeleton h-4 w-full"></div>
-</div>
-
+<% } %>
 
 
 </div>
