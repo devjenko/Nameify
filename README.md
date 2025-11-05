@@ -30,7 +30,7 @@ Nameify is a backend focused project that provides an interactive interface to g
 
 Demo
 ----
-Open the live demo: https://nameify.onrender.com
+Open the live demo: https://nameify.koyeb.app/
 
 Features
 --------
@@ -44,7 +44,7 @@ Tech stack
 - EJS
 - TailwindCSS
 - JavaScript 
-- Hosting: Render (https://render.com)
+- Hosting: koyeb
 
 Quick start
 -----------
@@ -80,7 +80,7 @@ The business name generator uses an LLM api to generate business names. If you w
 
 Deployment
 ----------
-This project is currently hosted on Render: https://nameify.onrender.com
+This project is currently hosted on Render: https://nameify.koyeb.app/
 
 
 Contributing
@@ -97,7 +97,7 @@ If you have questions or need help, open an issue in the repository or contact t
 
 - Owner: @devjenko
 - Project page: https://github.com/devjenko/Nameify
-- Live demo: https://nameify.onrender.com
+- Live demo: https://nameify.koyeb.app/
 
 License
 -------
