@@ -26,7 +26,7 @@ Table of Contents
 
 About
 -----
-Nameify is a backend focused project that provides an interactive interface to generate, and evaluate business names. The UI is designed to be clean and fast and is deployed at the Render URL below.
+Nameify is a backend focused project that provides an interactive interface to generate, and evaluate business names. The UI is designed to be clean and fast and is deployed at the Koyeb URL below.
 
 Demo
 ----
