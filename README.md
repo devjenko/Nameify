@@ -80,7 +80,7 @@ The business name generator uses an LLM api to generate business names. If you w
 
 Deployment
 ----------
-This project is currently hosted on Render: https://nameify.koyeb.app/
+This project is currently hosted on Koyeb: https://nameify.koyeb.app/
 
 
 Contributing
