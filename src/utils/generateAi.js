@@ -9,7 +9,7 @@ const mistral = new Mistral({
 
 async function generateAi(categoryName) {
   const result = await mistral.chat.complete({
-    model: "mistral-small-latest",
+    model: "open-mistral-nemo",
     messages: [
       {
         role: "user",
