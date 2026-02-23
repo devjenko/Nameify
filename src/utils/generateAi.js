@@ -13,24 +13,36 @@ async function generateAi(categoryName) {
     messages: [
       {
         role: "user",
-        content: `
-You are an expert HTML generator.
+        content: `You are an HTML-filling engine. You output only raw HTML. Nothing else.
 
-Task:
-Fill the following DaisyUI table with creative, professional, and modern business names that match the given category.
+TASK:
+Fill every empty <td></td> in the HTML below with a fictional business name matching the category: ${categoryName}
 
-Rules:
-- Only modify the empty <td></td> cells by inserting business names.
-- Each <tbody> section belongs to the preceding <thead> letter and must contain 3 unique names starting with that letter.
-- Keep all <div>, <table>, <thead>, <tbody>, <tr>, <th>, and <td> tags exactly as they are.
-- Do NOT remove, add, or rearrange any structure, tags, or classes.
-- Output only the HTML (starting with <div> and ending with </div>).
-- Do NOT include markdown, code fences, explanations, or comments.
-- Ensure all names fit the given category and sound like real, modern brand names (e.g., Notion, Stripe, Canva, Figma).
+STRICT RULES — follow every one exactly:
+
+1. OUTPUT: Return only the HTML, starting with <div and ending with </div>. No markdown, no code fences, no backticks, no explanations, no comments. Absolutely nothing before or after the HTML.
+
+2. STRUCTURE: Do NOT change, remove, add, or reorder any tags, attributes, classes, or whitespace outside of the <td> cells.
+
+3. LETTER RULE: Each name must start with the exact letter shown in the <th> above its <tbody>. A name under <th>B</th> must start with B. No exceptions.
+
+4. UNIQUENESS: Every single name across the entire table must be different. No name may appear more than once.
+
+5. FICTIONAL ONLY: Names must NOT be existing brands, companies, apps, or trademarks. Do not use: Stripe, Notion, Figma, Canva, Google, Apple, or any real brand — not even as inspiration for slight variations.
+
+6. STYLE: Names should sound like credible, modern startups — short (1-2 words), memorable, and relevant to the category. Think invented compound words, abstract nouns, or creative portmanteaus.
+
+7. COUNT: Each <tbody> has exactly 3 <tr><td></td></tr> rows. Fill all 3. No more, no less.
+
+Before generating, mentally list all 48 names (16 letters × 3) and verify:
+- All start with the correct letter
+- None are duplicates
+- None are real brand names
+Then output the filled HTML.
 
 Category: ${categoryName}
 
-Now fill this exact HTML:
+HTML to fill:
 <div class="h-[85vh] md:h-[100vh] overflow-x-auto">
   <table class="table table-pin-rows m-auto w-full bg-base-200">
     <thead><tr><th>A</th></tr></thead>
@@ -140,7 +152,7 @@ Now fill this exact HTML:
   //  Remove any Markdown code fences (```html, ```js, or plain ```)
   content = content
     .replace(/```[\s\S]*?```/g, (match) =>
-      match.replace(/```(html|javascript|js)?/gi, "").replace(/```/g, "")
+      match.replace(/```(html|javascript|js)?/gi, "").replace(/```/g, ""),
     )
     .trim();
 
