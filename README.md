@@ -30,7 +30,7 @@ Nameify is a backend focused project that provides an interactive interface to g
 
 Demo
 ----
-Open the live demo: https://nameify.koyeb.app/
+Open the live demo: https://representative-arlana-jenkoza-8e6f3660.koyeb.app/
 
 Features
 --------
